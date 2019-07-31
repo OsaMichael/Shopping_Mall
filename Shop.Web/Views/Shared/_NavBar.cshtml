@@ -1,0 +1,107 @@
+﻿
+@using Shop.Web.Models
+
+
+
+@*@usingSermonViewModel*@
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+
+    <!-- Navbar Area -->
+    <div class="faith-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="faithNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index"><img src="~/Content/img/core-img/rccggood.png" alt="" width="50" height="50">Shopping Mall </a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li>  @Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>
+                                    <a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li>@Html.ActionLink("NatioalProgramme", "NatioalProgramme", "Home")</li>
+                                        <li>@Html.ActionLink("Events", "UpcomingEvents", "Event")</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    @Html.ActionLink("About Us", "About", "Home")
+                                    <ul class="dropdown">
+                                        <li>@Html.ActionLink("Over View", "About", "Home")</li>
+                                        <li>@Html.ActionLink("Join Department", "JoinWorker", "Worker")</li>
+                                        <li>@Html.ActionLink("Our Staff", "DepartmentCorner", "Department")</li>
+                                        <li><a href="@Url.Action("DepartmentCorner","Department")">Ministries</a></li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Brand", "Index", "Admin")
+                                    <ul class="dropdown">
+                                        <li>@Html.ActionLink("Home", "Index", "Admin")</li>
+                                        @*<li>
+                                                <a href="@Url.Action("DepartmentCorner","Department")">Ministries</a>
+
+                                            </li>*@
+                                        @*<li>@Html.ActionLink("Gallery", "Galleries", "Home")</li>
+                                            <li> @Html.Action("SermonMenu", "Navigation")</li>
+
+                                            <li>@Html.ActionLink("Events", "UpcomingEvents", "Event")</li>
+                                            <li> @Html.ActionLink("Contact", "Contact", "Home")</li>
+                                            <li>  @Html.ActionLink("Login", "Login", "Account")</li>*@
+                                    </ul>
+                                </li>
+                                @*<li> @Html.Action("SermonMenu", "Navigation")</li>*@
+                                <li> @Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+
+
+                            <div class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+
+                            </div>
+
+
+                            @*<div class="search-box">
+                                    <input type="text" placeholder="Search" class="input">
+                                    <div class="btn">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </div>*@
+
+
+                            <div class="donate-btn">
+                                @Html.ActionLink("Login", "Login", "Account")
+                            </div>
+
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    $(document).on('click', '.fa-search', function () {
+        console.log('clicked');
+    })
+</script>

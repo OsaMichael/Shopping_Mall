@@ -1,0 +1,80 @@
+﻿@model Shop.Web.ViewModels.BrandViewModel
+    @using Shop.Web.Models
+
+@{
+    ViewBag.Title = "BrandList";
+}
+
+<h2>BrandList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>S/N</th>
+        <th>
+            Brand Picture
+        </th>
+        <th>
+            Brand Name
+        </th>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Company Name
+        </th>
+
+        <th>
+            Price
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.BrandUrl
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>*@
+        <th>
+            Brand Image
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Brands) {
+    <tr>
+        <td></td>
+        <td>
+            <img src="@Url.Content("~/Content/Images/")@item.BrandImageThumbnailUrl" class="img-thumbnail-small img-circle" style="width:65px; height:65px;" alt="preacher/@item.BrandName" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrandName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorys.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Companys.CompName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.BrandUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.BrandImageThumbnailUrl)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

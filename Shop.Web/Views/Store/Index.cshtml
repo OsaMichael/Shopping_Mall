@@ -1,0 +1,16 @@
+﻿@model Shop.Web.ViewModels.CategoryViewModel
+@{
+    ViewBag.Title = "store";
+}
+
+<h3>Browse Categories</h3>
+<p>
+    Select from @Model.Categories.Count() categories: 
+</p>
+
+<ul>
+    @foreach (var genre in Model.Categories)
+    {
+        <li>@Html.ActionLink(genre.Name, "Browse", new { genre = genre.Name })</li>
+    }
+</ul>

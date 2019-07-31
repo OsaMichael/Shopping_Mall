@@ -1,0 +1,45 @@
+﻿@model Shop.Web.ViewModels.CompanyViewModel
+
+@{
+    ViewBag.Title = "CompanyList";
+}
+
+<h2>CompanyList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddCompany")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CompanId)
+        </th>*@
+        <th>
+            Company Name
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CompanyImageUrl)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Companies) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CompanId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.CompName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CompanyImageUrl)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

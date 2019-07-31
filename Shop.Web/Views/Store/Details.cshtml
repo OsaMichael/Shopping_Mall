@@ -1,0 +1,101 @@
+﻿@model Shop.Web.BrandModel
+
+@{
+    ViewBag.Title = "Brand - " + Model.BrandName;
+}
+
+<h2>@Model.BrandName</h2>
+
+<p><img alt="@Model.BrandName" src="@Model.BrandUrl" /> </p>
+
+<div id="album-details">
+    <p>
+        <em>Category:</em>
+        @Model.Categorys.Name
+    </p>
+    <p>
+        <em>Company:</em>
+        @Model.Companys.CompName
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}", Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.BrandId }, "")
+    </p>
+</div>
+@*<div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CategoryId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CompanId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CompanId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImageUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandImageThumbnailUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandImageThumbnailUrl)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

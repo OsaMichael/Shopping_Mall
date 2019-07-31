@@ -1,0 +1,309 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from colorlib.com/preview/theme/faith2/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Oct 2018 14:43:13 GMT -->
+<!-- Added by HTTrack -->
+@*<meta http-equiv="content-type" content="text/html;charset=UTF-8" />*@<!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>Shopping Mall</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/img/core-img/rccggood.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="~/Content/style.css">
+
+</head>
+
+<body>
+    @Html.Partial("_NavBar")
+
+
+
+    @RenderBody()
+
+
+    <div>
+        @Html.Partial("_Footer")
+    </div>
+
+
+
+    <script data-cfasync="false" src="~/Content/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/Content/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/Content/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/Content/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="~/Content/js/plugins/plugins.js"></script>
+    <script src="~/Content/js/plugins/audioplayer.js"></script>
+    <!-- Active js -->
+    <script src="~/Content/js/active.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("script2", required: false)
+</body>
+</html>
+
+
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Gospel World</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link href="~/AdminLTE/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+        <link href="~/Content/themes/base/accordion.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/autocomplete.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/base.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/button.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/core.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/datepicker.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/dialog.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/draggable.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/menu.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/progressbar.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/resizable.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/selectable.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/selectmenu.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/slider.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/sortable.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/spinner.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/tabs.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/theme.css" rel="stylesheet" />
+        <link href="~/Content/themes/base/tooltip.css" rel="stylesheet" />
+
+        <link href="~/AdminLTE/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/dist/css/admin-lte.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/dist/css/admin-lte.css" rel="stylesheet" />
+        <link href="~/AdminLTE/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/documentation/css/style.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/bootstrap-slider/css/slider.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/bootstrap-wysihtml5/css/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/datepicker/css/datepicker3.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/fullcalendar/css/fullcalendar.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/fullcalendar/css/print/fullcalendar.print.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/icheck/css/all.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/icheck/css/flat/flat.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/icheck/css/sqare/blue.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/ionslider/css/ion.rangeSlider.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/ionslider/css/ion.rangeSlider.skinNice.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/morris/css/morris.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/pace/css/pace.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+        <link href="~/AdminLTE/plugins/select2/css/select2.min.css" rel="stylesheet" />
+        @RenderSection("scripts", required: false)
+        <link href="~/Content/toastr.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-3.2.1.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/toastr.js"></script>
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            @Html.Partial("_Header")
+            @Html.Partial("_Sidebar")
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <h1>
+                        @ViewBag.Title
+                        <small>@ViewBag.SubTitle</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i>@ViewBag.SubTitle</a></li>
+                        <li class="active">@ViewBag.Title</li>
+                    </ol>
+                </section>
+                <section class="content">
+                    @RenderBody()
+                    @RenderSection("Script", false)
+                </section>
+            </div>
+            @Html.Partial("_Footer")
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <script src="~/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/AdminLTE/dist/js/app.js"></script>
+        <script src="~/AdminLTE/documentation/js/docs.js"></script>
+        <script src="~/AdminLTE/plugins/bootstrap-slider/js/bootstrap-slider.js"></script>
+        <script src="~/AdminLTE/plugins/bootstrap-wysihtml5/js/bootstrap3-wysihtml5.all.min.js"></script>
+        <script src="~/AdminLTE/plugins/chartjs/js/chart.min.js"></script>
+        <script src="~/AdminLTE/plugins/ckeditor/js/ckeditor.js"></script>
+        <script src="~/AdminLTE/plugins/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+        <script src="~/AdminLTE/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+        <script src="~/AdminLTE/plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="~/AdminLTE/plugins/datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="~/AdminLTE/plugins/datepicker/js/locales/bootstrap-datepicker*"></script>
+        <script src="~/AdminLTE/plugins/daterangepicker/js/moment.min.js"></script>
+        <script src="~/AdminLTE/plugins/daterangepicker/js/daterangepicker.js"></script>
+        <script src="~/AdminLTE/plugins/fastclick/js/fastclick.min.js"></script>
+        <script src="~/AdminLTE/plugins/flot/js/jquery.flot.min.js"></script>
+        <script src="~/AdminLTE/plugins/flot/js/jquery.flot.resize.min.js"></script>
+        <script src="~/AdminLTE/plugins/flot/js/jquery.flot.pie.min.js"></script>
+        <script src="~/AdminLTE/plugins/flot/js/jquery.flot.categories.min.js"></script>
+        <script src="~/AdminLTE/plugins/fullcalendar/js/fullcalendar.min.js"></script>
+        <script src="~/AdminLTE/plugins/icheck/js/icheck.min.js"></script>
+        @*<script src="~/AdminLTE/plugins/input-mask/js/jquery.inputmask.js"></script>
+            <script src="~/AdminLTE/plugins/input-mask/js/jquery.inputmask.date.extensions.js"></script>
+            <script src="~/AdminLTE/plugins/input-mask/js/jquery.inputmask.extensions.js"></script>
+            <script src="~/AdminLTE/plugins/ionslider/js/ion.rangeSlider.min.js"></script>
+            <script src="~/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>
+            <script src="~/AdminLTE/plugins/jquery-validate/js/jquery.validate*"></script>
+            <script src="~/AdminLTE/plugins/jquery-ui/js/jquery-ui.min.js"></script>
+            <script src="~/AdminLTE/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>
+            <script src="~/AdminLTE/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js"></script>
+            <script src="~/AdminLTE/plugins/knob/js/jquery.knob.js"></script>
+            <script src="~/AdminLTE/plugins/momentjs/js/moment.min.js"></script>
+            <script src="~/AdminLTE/plugins/pace/js/pace.min.js"></script>
+            <script src="~/AdminLTE/plugins/slimscroll/js/jquery.slimscroll.min.js"></script>
+            <script src="~/AdminLTE/plugins/sparkline/js/jquery.sparkline.min.js"></script>
+            <script src="~/AdminLTE/plugins/timepicker/js/bootstrap-timepicker.min.js"></script>
+            <script src="~/AdminLTE/plugins/raphael/js/raphael-min.js"></script>
+            <script src="~/AdminLTE/plugins/select2/js/select2.full.min.js"></script>
+            <script src="~/AdminLTE/plugins/morris/js/morris.min.js"></script>*@
+@*</body>
+    </html>*@
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+
+
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
