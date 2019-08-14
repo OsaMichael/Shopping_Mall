@@ -28,17 +28,18 @@ namespace Shop.Web.Controllers
         {
            // var brands = storedDb.Brands.ToList();
 
-            var brand = storedDb.Categories.Include("Brands").SingleOrDefault(c => c.Name == "Electronics");
+            var categ = storedDb.Categories.Include("Brands").SingleOrDefault(c => c.Name ==category /*"Electronics"*/);
 
             var bdd = new CategoryViewModel
             {
-               Categoree = brand
+               Categoree = categ
             };
 
             return View(bdd);
         }
 
         public ActionResult Details(int id)
+
         {
             var brand = storedDb.Brands.Find(id);
 
@@ -50,9 +51,22 @@ namespace Shop.Web.Controllers
                 Categorys = brand.Categorys,
                 CategoryId = brand.CategoryId,
                 Companys = brand.Companys,
-                CompanId = brand.CompanId
+                CompanId = brand.CompanId,
+                 BrandImageThumbnailUrl = brand.BrandImageThumbnailUrl
             };
             return View(result);
+        }
+
+        [ChildActionOnly]
+        public ActionResult GenreMenu()
+        {
+            var category = storedDb.Categories.ToList();
+
+            var result = new CategoryViewModel
+            {
+                 Categories = category
+            };
+            return PartialView(result);
         }
     }
 }

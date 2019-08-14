@@ -1,0 +1,10 @@
+﻿
+@model Shop.Web.ViewModels.CategoryViewModel
+
+@*NOTE: we need to use foreach since we pass in viewmodel using ienumerable in the  class else without viewmodel use IENUMERABLE*@
+<ul id="categories">
+    @foreach (var genre in Model.Categories)
+    {
+        <li>@Html.ActionLink(genre.Name, "Browse", "Store", new { Category = genre.Name }, null) </li>
+    }
+</ul>

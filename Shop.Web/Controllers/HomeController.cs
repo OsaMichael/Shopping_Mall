@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Shop.Web.Models;
+using Shop.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,22 @@ namespace Shop.Web.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var brands = db.Brands.ToList();
+            var category = db.Categories.ToList();
+            var company = db.Companies.ToList();
+
+            var result = new HomeViewModel
+            {
+                Brands = brands,
+                Categories = category,
+                Companies = company,
+                GetBrand = brands.FirstOrDefault()
+                 
+            };
+            return View(result);
         }
 
         public ActionResult About()

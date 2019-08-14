@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Shop.Web.Entities;
 using Shop.Web.Models;
 
 namespace Shop.Web.Controllers
@@ -51,7 +52,13 @@ namespace Shop.Web.Controllers
                 _userManager = value;
             }
         }
+        private void MigrateShoppingCart(string UserName)
+        {     // Associate shopping cart items with logged-in user  
+            var cart = ShoppingCart.GetCart(this.HttpContext); 
 
+            cart.MigrateCart(UserName);
+            Session[ShoppingCart.CartSessionKey] = UserName;
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -68,18 +75,35 @@ namespace Shop.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
+               // validate user existence
+                var userr = UserManager.Users.Where(b => b.Email == model.Email && b.PasswordHash == model.Password);
+                if (userr == null) return RedirectToAction("Login");
+                //  return View(model);
             }
 
+            // if user exist migrate the user
+            MigrateShoppingCart(model.Email);
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+
+            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
+                 // return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -155,6 +179,9 @@ namespace Shop.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //migrate the user
+                    MigrateShoppingCart(model.Email);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

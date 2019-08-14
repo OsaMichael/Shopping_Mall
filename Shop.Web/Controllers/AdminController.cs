@@ -19,42 +19,50 @@ namespace Shop.Web.Controllers
        // GET: Admin
         public ActionResult Index()
         {
-            var comp = db.Companies.ToList();
-            var compList = comp.Select(x => new CompanyModel
-            {
-                CompanId = x.CompanId,
-                CompName = x.CompName,
 
-            }).ToList();/*.GroupBy(v => new { v.CompanId, v.CompName }).Select(s => s.FirstOrDefault());*/
+            ViewBag.brand = db.Brands.Count();
+            ViewBag.category = db.Categories.Count();
+            ViewBag.company = db.Companies.Count();
+            return View();
+            //var comp = db.Companies.ToList();
+            //var compList = comp.Select(x => new CompanyModel
+            //{
+            //    CompanId = x.CompanId,
+            //    CompName = x.CompName,
 
-            var vendList = (from album in db.Brands
-                            join cate in db.Categories on album.CategoryId equals cate.CategoryId
-                            join company in db.Companies on album.CompanId equals company.CompanId
-                            select new BrandViewModel()
-                            {
-                                BrandName = album.BrandName,
-                                Price = album.Price,
-                                CompName = company.CompName,
-                                Name = cate.Name,
-                                BrandImageThumbnailUrl = album.BrandImageThumbnailUrl
-                            }).GroupBy(v => new { v.BrandName, v.CompName }).Select(s => s.FirstOrDefault());
+            //}).ToList();/*.GroupBy(v => new { v.CompanId, v.CompName }).Select(s => s.FirstOrDefault());*/
 
-            var result = (from album in db.Brands
-                          join cate in db.Categories on album.CategoryId equals cate.CategoryId
-                          join company in db.Companies on album.CompanId equals company.CompanId
+            //var vendList = (from album in db.Brands
+            //                join cate in db.Categories on album.CategoryId equals cate.CategoryId
+            //                join company in db.Companies on album.CompanId equals company.CompanId
+            //                select new BrandViewModel()
+            //                {
+            //                    BrandName = album.BrandName,
+            //                    Price = album.Price,
+            //                    CompName = company.CompName,
+            //                    Name = cate.Name,
+            //                    BrandImageThumbnailUrl = album.BrandImageThumbnailUrl
+            //                }).GroupBy(v => new { v.BrandName, v.CompName }).Select(s => s.FirstOrDefault());
 
-                          select new BrandViewModel()
-                         {
+
+
+
+            //var result = (from album in db.Brands
+            //              join cate in db.Categories on album.CategoryId equals cate.CategoryId
+            //              join company in db.Companies on album.CompanId equals company.CompanId
+
+            //              select new BrandViewModel()
+            //             {
                           
-                               BrandName = album.BrandName,
-                              Price = album.Price,
-                              CompName = string.Join(", ", vendList.Where(a => a.BrandName == album.BrandName).Select(u => u.CompName)),
-                              Name = cate.Name,                        
-                              BrandImageThumbnailUrl = album.BrandImageThumbnailUrl
-                          });    
+            //                   BrandName = album.BrandName,
+            //                  Price = album.Price,
+            //                  CompName = company.CompName,/*string.Join(", ", vendList.Where(a => a.BrandName == album.BrandName).Select(u => u.CompName)),*/
+            //                  Name = cate.Name,                        
+            //                  BrandImageThumbnailUrl = album.BrandImageThumbnailUrl
+            //              });    
                         
 
-            return View(result);
+            //return View(result);
 
         }
         public ActionResult CompanyList()
@@ -184,7 +192,7 @@ namespace Shop.Web.Controllers
                         BrandUrl = model.BrandUrl,
                         BrandImageThumbnailUrl = model.ImageUrl,
                         ImageUrl = model.ImageUrl,
-                       //  CategoryId = model.CategoryId,
+                        CategoryId = model.CategoryId,
                           CompanId = model.CompanId
                     };
 

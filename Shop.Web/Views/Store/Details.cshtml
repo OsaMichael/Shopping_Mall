@@ -1,29 +1,34 @@
 ﻿@model Shop.Web.BrandModel
 
 @{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Brand - " + Model.BrandName;
 }
 
-<h2>@Model.BrandName</h2>
+<div class="fa-align-center">
+    <h2>@Model.BrandName</h2>
 
-<p><img alt="@Model.BrandName" src="@Model.BrandUrl" /> </p>
+    @*<p><img alt="@Model.BrandName" src="@Model.BrandImageThumbnailUrl" /> </p>*@
+    <p> <img src="@Url.Content("~/Content/Images/")@Model.BrandImageThumbnailUrl" class="img-thumbnail-small img-circle" style="width:100px; height:100px;" alt="brand/@Model.BrandName" /></p>
 
-<div id="album-details">
-    <p>
-        <em>Category:</em>
-        @Model.Categorys.Name
-    </p>
-    <p>
-        <em>Company:</em>
-        @Model.Companys.CompName
-    </p>
-    <p>
-        <em>Price:</em>
-        @String.Format("{0:F}", Model.Price)
-    </p>
-    <p class="button">
-        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.BrandId }, "")
-    </p>
+    <div id="album-details">
+        <p>
+            <em>Category:</em>
+            @Model.Categorys.Name
+        </p>
+        <p>
+            <em>Company:</em>
+            @Model.Companys.CompName
+        </p>
+        <p>
+            <em>Price:</em>
+            @String.Format("{0:F}", Model.Price)
+        </p>
+        <p class="button">
+            @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = Model.BrandId }, "")
+        </p>
+    </div>
+</div>
 </div>
 @*<div>
 

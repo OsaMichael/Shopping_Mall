@@ -1,31 +1,336 @@
-﻿@*@{
-    ViewBag.Title = "Home Page";
+﻿
+
+@model Shop.Web.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<div class="genre">
+    <h3><em>@Model.GetBrand.BrandName</em> Brands</h3>
+    <ul id="album-list">
+        @foreach (var album in Model.Brands)
+        {
+        <li>
+            <a href="@Url.Action("Details", "Store", new { id = album.BrandId })">
+
+                <img src="@Url.Content("~/Content/Images/")@album.BrandImageThumbnailUrl" class="img-thumbnail-small img-circle" style="width:100px; height:100px;" alt="brand/@album.BrandName" />
+                <h2>@album.BrandName</h2>
+               
+                @*<p>@Model.GetBrand.Price</p>*@
+            </a>
+            @*<br />*@
+            @*<h6>@album.Price</h6>*@
+            @*<p>*@
+                @*<h3 class="color:red"><em>@Model.GetBrand.Price</em>45%</h3>*@
+                @*@String.Format("{0:F}", Model.GetBrand.Price)*@
+            @*</p>*@
+        </li>
+
+        }
+    </ul>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+
+
+
+@*<div class="faith-cta-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="next-events-countdown cta-text d-flex justify-content-between align-items-center">
+                        <h5>Next Event:</h5>
+                        @foreach (var events in Model.Events)
+                        {
+                            if (events.EventDate >= DateTime.Now)
+                            {
+                                <div class="events-cd faith-btn" data-countdown="@events.EventDate"></div>
+                                break;
+                            }
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+@*<section class="faith-about-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-content">
+                        <h2>“Blessed is the one who takes refuge <br>in Him.”</h2>
+                        <h6>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce nec ante vitae lacus aliquet vulputate. Donec scelerisque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    >*@
+@*<section class="church-activities-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center mx-auto">*@
+@*<img src="~/Content/img/bg-img/bg-5.jpg" alt="">*@
+@*<h3></h3>*@
+@*<p>Worship with us at RCCG Praise Assembly</p>*@
+@*</div>
+        </div>
+    </div>*@
+
+
+
+@*<div class="row">
+    <div class="col-12 col-lg-6">*@
+
+@*<div class="upcoming-events mb-100">*@
+
+@*<div class="headline">
+        <h5>Upcoming Events</h5>
+    </div>*@
+@*@foreach (var item in Model.Events)
+    {
+        if (item.EventDate >= DateTime.Now)
+        {
+
+            <div class="single-upcoming-events d-flex align-items-center">
+
+                <div class="event-date-thumbnail d-flex align-items-center">
+                    <div class="event-date">
+                        <h6>@item.EventDate.Day <br> @item.EventDate.Month <br> @item.EventDate.Year</h6>
+                    </div>
+                    <div class="event-thumbnail bg-img">
+                        <img src="@Url.Content("~/Content/images/")@item.EventImageThumbnailUrl" height="40" />
+                    </div>
+                </div>
+
+                <div class="events-content">
+                    <a href="@Url.Action("EventDetails", "Event", new { id = item.EventId })">
+                        <h6>@item.EventName</h6>
+                    </a>
+                    <p>@item.EventDate  @item.EventLocation</p>
+                </div>
+            </div>
+        }
+    }*@
+@*<div class="all-events-btn">
+            <a href="@Url.Action("UpcomingEvents","Event")" class="btn faith-btn active">See All Events</a>
+        </div>
+
+    </div>*@
+@*</div>*@
+@*<div class="col-12 col-lg-6">
+
+                    <div class="latest-sermons mb-100">
+                        <div class="headline">
+                            <h5></h5>
+                        </div>
+
+
+                        @foreach (var item in Model.Sermons)
+                        {
+                            if (item.SermonDate <= DateTime.Now)
+                            {
+
+                                <div class="single-sermons">
+                                    <div class="sermons-content d-flex align-items-center">
+
+                                        <div class="sermons-thumbnail bg-img">
+                                            <img src="@Url.Content("~/Content/images/")@item.ImageThumbnailUrl" alt="preacher :@item.PreacherName" />
+
+
+                                        </div>
+
+                                        <div class="sermons-text">
+                                            <a href="@Url.Action("SermonDetails","Sermon", new { id = item.SermId } )">
+
+                                                <h6>@item.SermonTitle</h6>
+                                            </a>
+                                            <p>by @item.PreacherName</p>
+                                            <p class="date"> @item.SermonDate.Date</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="sermons-audio-player d-flex align-items-center">
+                                        <audio preload="auto" controls>
+                                            <source src="~/Content/audio/dummy-audio.mp3">
+                                        </audio>
+                                        <div class="see-more-btn">
+                                            <a href="@Url.Action("SermonDetails","Sermon", new { id = item.SermId } )">See More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                        <div class="all-events-btn">
+                            <a href="@Url.Action("Index","Sermon")" class="btn faith-btn active">See All Sermon</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+
+@*<section class="donate-our-charities section-padding-100 bg-img bg-overlay" style="background-image: url(~/Content/img/bg-img/bg-3.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading white text-center mx-auto">
+                        <img src="~/Content/img/core-img/cross.png" alt="">
+                        <h3>Department Gallery</h3>
+                        <p>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="donate-slides owl-carousel">
+                        @foreach (var item in Model.Departments)
+                        {
+                            <div class="single-donate-slide">
+                                <img src="@Url.Content("~/Content/images/")@item.ImageThumbnailUrl" alt="@item.DeptLeaderName" />
+
+                                <div class="donate-content">
+                                    <h4>  @item.DeptName</h4>
+                                    <p>  @Html.Raw(item.Description)</p>
+                                </div>
+
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+@*<div class="faith-blog-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center mx-auto">
+                    <img src="~/Content/img/core-img/cross.png" alt="">
+                    <h3>About Us</h3>
+                    <p>Donec quis metus ac arcu luctus accumsan. Nunc in justo tincidunt, sodales nunc id, finibus nibh.</p>
+                </div>
+            </div>
+        </div>*@
+
+@*<div class="row">
+
+    <div class="col-12 col-lg-4">
+        <div class="single-blog-area mb-100">
+            <div class="blog-thumbnail">
+                <img src="~/Content/img/blog-img/1.jpg" alt="">
+                <div class="post-date">
+                    <a href="#">Mission and Vision</a>
+                </div>
+            </div>
+            <div class="blog-content">
+                <a href="#" class="blog-title">The mission statement of the Redeemed Christian Church of God is:</a>
+                <p>
+                    To make heaven <br /> To take as many people with us <br /> To have a member of RCCG in every family of all nations
+                    <br /> To accomplish No. 1 above, holiness will be our lifestyle <br /> To accomplish No. 2 and 3 above, we will plant churches
+                    within five minutes walking distance in every city and town of developing countries <br />
+                    We will pursue thes objectives until every nation in the world is reached for the Lord Jesus Christ
+                </p>
+                <a href="#" class="readmore-btn">Read More</a>
+            </div>
+        </div>
+    </div>*@
+
+@*<div class="col-12 col-lg-4">
+    <div class="single-blog-area mb-100">
+
+        @foreach (var item in Model.Sermons)
+        {
+            if (item.SermonDate <= DateTime.Now)
+            {
+
+                <div class="blog-thumbnail">
+                    @*<img src="@Url.Content("~/Content/images/")@item.ImageThumbnailUrl" alt="preacher :@item.PreacherName" />*@
+@*<img src="~/Content/img/blog-img/3.jpg" alt="">
+
+        <div class="post-date">
+            <a href="#">Most Recent Sermon</a>
+        </div>
+    </div>*@
+@*<div class="blog-content">
+        <a href="#" class="blog-title">@item.SermonTitle</a>
+        <p>@item.ShortDescription.</p>
+        <a href="@Url.Action("SermonDetails","Sermon", new { id = item.SermId } )" class="readmore-btn">Read More</a>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    break;*@
+@*}
+    }*@
+
+@*</div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+
+    <div class="col-12 col-lg-4">
+        <div class="single-blog-area mb-100">
+            <div class="blog-thumbnail">
+                <img src="~/Content/img/bg-img/bg-5.jpg" alt="">
+                <div class="post-date">
+                    @Html.ActionLink("Department", "DepartmentCorner", "Department")
+                </div>
+            </div>
+            <div class="blog-content">
+                <a href="#" class="blog-title">Praise Assembly Department</a>
+                <p class="meta-data">
+                    Jesus Christ told us, his disciples, to make disciples of all nations. In line with our ultimate goal to make heaven and to take as many people with us as is possible,
+                    the most important values of this church is our mission to the world. It begins in our own community, and spreads overseas to every nation. Church members are involved
+                    in a variety of ministries from things as simple as cleaning the church environment, to taking a class in Sunday school.
+                </p>
+                </p>
+                @Html.ActionLink("Read more", "DepartmentCorner", "Department")
+
+            </div>
+        </div>
+    </div>*@
+@*</div>*@
+@*</div>
+    </div>*@
+
+@*<a href="/Admin/index">Click >> admin page</a>*@
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
-</div>*@
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@

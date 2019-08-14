@@ -1,11 +1,12 @@
 ﻿@model Shop.Web.ViewModels.CategoryViewModel
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Browse Brands";
 }
 
 <div class="category">
-    <h3><em>@Model.Categoree.Name</em> Brands</h3>
+    <h3><em>@Model.Categoree.Name</em> Browsing Category</h3>
     <ul id="album-list">
         @foreach (var album in Model.Categoree.Brands)
         {

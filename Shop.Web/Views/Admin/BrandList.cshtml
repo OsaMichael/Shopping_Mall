@@ -3,6 +3,7 @@
 
 @{
     ViewBag.Title = "BrandList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <h2>BrandList</h2>
@@ -45,7 +46,7 @@
     <tr>
         <td></td>
         <td>
-            <img src="@Url.Content("~/Content/Images/")@item.BrandImageThumbnailUrl" class="img-thumbnail-small img-circle" style="width:65px; height:65px;" alt="preacher/@item.BrandName" />
+            <img src="@Url.Content("~/Content/Images/")@item.BrandImageThumbnailUrl" class="img-thumbnail-small img-circle" style="width:65px; height:65px;" alt="brandname/@item.BrandName" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BrandName)
